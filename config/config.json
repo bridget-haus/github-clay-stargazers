@@ -1,0 +1,9 @@
+{
+  "repos": [
+    "dbt-labs/dbt-core",
+    "apache/airflow",
+    "dagster-io/dagster",
+    "duckdb/duckdb",
+    "dlt-hub/dlt"
+  ]
+}

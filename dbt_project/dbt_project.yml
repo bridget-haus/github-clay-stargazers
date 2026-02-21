@@ -1,0 +1,11 @@
+name: github_stargazers
+version: "1.0"
+config-version: 2
+
+profile: github_stargazers
+
+model-paths: ["models"]
+
+models:
+  github_stargazers:
+    +materialized: table

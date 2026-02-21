@@ -1,0 +1,6 @@
+github_stargazers:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: data/github_stars.duckdb

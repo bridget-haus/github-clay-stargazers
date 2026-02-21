@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+
+# dlt runtime state
+.dlt/
+.user.yml
+
+# dbt build artifacts
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dbt_packages/
+
+# Dagster temp state
+dagster_orchestration/.tmp_dagster_home_*/
+dagster_orchestration/**/.tmp_dagster_home_*/
