@@ -8,14 +8,14 @@ Dagster-orchestrated pipeline that extracts GitHub stargazers via GraphQL, loads
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/github-clay-stargazers.git
+git clone https://github.com/bridget-haus/github-clay-stargazers.git
 cd github-clay-stargazers
 ```
 
 ### 2. Install Python dependencies
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```

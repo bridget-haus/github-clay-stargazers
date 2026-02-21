@@ -130,7 +130,7 @@ def fetch_repo_to_queue(
                     "login": node["login"],
                     "user_id": node["databaseId"],
                     "starred_at": starred_at_str,
-                    "extracted_at": extracted_at,
+                    "extracted_at":  utc_now_iso(),
                 }
             )
             yielded += 1
@@ -316,6 +316,10 @@ def main():
         help="Number of concurrent repo fetch workers (default: min(num_repos, 5))",
     )
     args = parser.parse_args()
+
+    db_path = os.path.join("data", "github_stars.duckdb")
+    os.makedirs("data", exist_ok=True)
+    os.environ["DESTINATION__DUCKDB__CREDENTIALS__DATABASE"] = db_path
 
     pipeline = dlt.pipeline(
         pipeline_name="github_stargazers",
