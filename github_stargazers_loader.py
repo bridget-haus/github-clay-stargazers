@@ -9,7 +9,9 @@ import dlt
 from concurrent.futures import ThreadPoolExecutor, Future
 from queue import Queue
 import threading
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def load_config(path: str = "config/config.json") -> dict:
     with open(path) as f:
@@ -306,7 +308,7 @@ def get_repo_star_rows(pipeline) -> Dict[str, int]:
 
 def main():
     parser = argparse.ArgumentParser(description="GitHub stargazer pipeline")
-    parser.add_argument("--mode", choices=["backfill", "incremental"], default="backfill")
+    parser.add_argument("--mode", choices=["backfill", "incremental"], default="incremental")
     parser.add_argument(
         "--workers",
         type=int,

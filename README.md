@@ -1,54 +1,29 @@
-# GitHub Stargazer ELT Pipeline
+# GitHub Stargazer Pipeline
 
-An end-to-end ELT pipeline that extracts GitHub stargazer data via GraphQL, loads it into DuckDB, transforms it with dbt, and generates analytics-ready models and reports.
-
-## 🚀 Features
-
-- Parallel GraphQL extraction across multiple repos
-- Incremental loading with per-repo watermarks
-- Full backfill mode for reproducible rebuilds
-- Merge-based writes to prevent duplicates
-- dbt models for analytics-ready star metrics
-- Automated daily orchestration with Dagster
+Dagster-orchestrated pipeline that extracts GitHub stargazers via GraphQL, loads to DuckDB using dlt, runs dbt models, and generates a report.
 
 ---
 
-## 🏗 Architecture
+## Quickstart
 
-**Extract**
-- GitHub GraphQL API
-- Parallel repo fetching
-- ASC order for backfill, DESC for incremental
+### 1. Clone the repo
+```bash
+git clone https://github.com/<YOUR_USERNAME>/github-clay-stargazers.git
+cd github-clay-stargazers
+```
 
-**Load**
-- DuckDB via dlt
-- Merge on `(repo_full_name, user_id)`
-
-**Transform**
-- dbt models:
-  - `stargazer_by_user`
-  - `stargazer_by_month`
-
-**Report**
-- Python visualizations + HTML output
-
----
-
-## 🔄 Pipeline Modes
-
-### Backfill
-Rebuilds the dataset from source of truth.
-
-Behavior:
-- Deletes DuckDB database file
-- Fetches full history (ASC order)
-- Recreates tables via merge writes
-
-Use when:
-- First run
-- Logic changes
-- Data drift correction
-- Reproducible analytics
+### 2. Install Python dependencies
 
 ```bash
-python loader.py --mode backfill
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+### 3. Configure GitHub token
+
+```bash
+cp .env.example .env
+```
+Edit .env to include:
+
+`GITHUB_TOKEN=your_token_here`
