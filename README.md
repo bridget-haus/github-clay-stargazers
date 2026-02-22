@@ -14,20 +14,24 @@ git clone https://github.com/bridget-haus/github-clay-stargazers.git
 cd github-clay-stargazers
 ```
 
-Only if not logged in to Github already and using Mac:
-
-```bash
-brew install gh
-gh auth login
-```
-
 ### 2. Install Python dependencies
+
+macOS / Linux:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+
+Windows (PowerShell):
+
+```PowerShell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+```
+
 ### 3. Configure GitHub Token
 
 This pipeline uses the GitHub GraphQL API and requires authentication.
@@ -52,21 +56,30 @@ This pipeline uses the GitHub GraphQL API and requires authentication.
 
 #### Step 2 — Copy example env file
 
+macOS / Linux:
+
 ```bash
 cp .env.example .env
 ```
 
-If you don't see .env
+Windows (PowerShell):
 
-```bash
-ls -a
+```PowerShell
+copy .env.example .env
 ```
-shows hidden files
 
 #### Step 3 — Edit .env file and paste your token
 
+macOS / Linux:
+
 ```bash
 open .env
+```
+
+Windows (PowerShell):
+
+```PowerShell
+notepad .env
 ```
 
 `GITHUB_TOKEN=<YOUR_TOKEN_HERE>`
@@ -78,7 +91,7 @@ Save the file
 Start Dagster:
 
 ```bash
-cd dagster-orechestration
+cd dagster_orchestration
 dagster dev
 ```
 
@@ -90,8 +103,17 @@ On the left side panel click
 
 ### 5. View HTML Dashboard
 
+macOS / Linux:
+
 ```bash
 cd ..
 open reports/github_stargazer_dashboard.html
+```
+
+Windows (PowerShell):
+
+```PowerShell
+cd ..
+start reports/github_stargazer_dashboard.html
 ```
 
