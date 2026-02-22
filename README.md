@@ -7,9 +7,18 @@ Dagster-orchestrated pipeline that extracts GitHub stargazers via GraphQL, loads
 ## Quickstart
 
 ### 1. Clone the repo
+
+
 ```bash
 git clone https://github.com/bridget-haus/github-clay-stargazers.git
 cd github-clay-stargazers
+```
+
+Only if not logged in to Github already and using Mac:
+
+```bash
+brew install gh
+gh auth login
 ```
 
 ### 2. Install Python dependencies
@@ -47,9 +56,20 @@ This pipeline uses the GitHub GraphQL API and requires authentication.
 cp .env.example .env
 ```
 
-Edit .env to include:
+If you don't see .env
 
-`GITHUB_TOKEN=your_token_here`
+```bash
+ls -a
+```
+shows hidden files
+
+Edit .env file
+
+```bash
+open .env
+```
+
+`GITHUB_TOKEN=<YOUR_TOKEN_HERE>`
 
 ### 4. Orchestrate Pipeline with Dagster
 
@@ -60,3 +80,7 @@ cd dagster-orechestration
 dagster dev
 ```
 Open the UI → http://localhost:3000
+
+On the left side panel click 
+
+**Catalog → Select Assets → Materialize**
