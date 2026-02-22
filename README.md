@@ -1,6 +1,6 @@
 # GitHub Stargazer Pipeline
 
-Dagster-orchestrated pipeline that extracts GitHub stargazers via GraphQL, loads to DuckDB using dlt, runs dbt models, and generates a report.
+Dagster-orchestrated pipeline that extracts GitHub stargazers via GraphQL, loads to DuckDB using dlt, runs dbt models, and generates HTML dashboard.
 
 ---
 
@@ -50,7 +50,7 @@ This pipeline uses the GitHub GraphQL API and requires authentication.
 
 ---
 
-#### Step 2 — Add token to environment file
+#### Step 2 — Copy example env file
 
 ```bash
 cp .env.example .env
@@ -63,13 +63,15 @@ ls -a
 ```
 shows hidden files
 
-Edit .env file
+#### Step 3 — Edit .env file and paste your token
 
 ```bash
 open .env
 ```
 
 `GITHUB_TOKEN=<YOUR_TOKEN_HERE>`
+
+Save the file
 
 ### 4. Orchestrate Pipeline with Dagster
 
@@ -79,8 +81,17 @@ Start Dagster:
 cd dagster-orechestration
 dagster dev
 ```
+
 Open the UI → http://localhost:3000
 
 On the left side panel click 
 
 **Catalog → Select Assets → Materialize**
+
+### 5. View HTML Dashboard
+
+```bash
+cd ..
+open reports/github_stargazer_dashboard.html
+```
+
