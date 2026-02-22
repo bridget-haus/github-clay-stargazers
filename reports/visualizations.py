@@ -224,7 +224,7 @@ def save_html_report(con: duckdb.DuckDBPyConnection, top_n: int = 50, max_repos:
     <html>
     <head>
     <meta charset="utf-8" />
-    <title>GitHub Stargazer Report</title>
+    <title>GitHub Stargazer Dashbaord</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
         body {{
@@ -370,7 +370,7 @@ def save_html_report(con: duckdb.DuckDBPyConnection, top_n: int = 50, max_repos:
     </head>
     <body>
 
-    <h1>GitHub Stargazer Report</h1>
+    <h1>GitHub Stargazer Dashboard</h1>
 
     <div class="refresh-timestamp">
     Data Refreshed as of {refresh_timestamp}
@@ -404,7 +404,7 @@ def save_html_report(con: duckdb.DuckDBPyConnection, top_n: int = 50, max_repos:
     </html>
     """.strip()
 
-    out_path = Path("reports") / "report.html"
+    out_path = Path("reports") / "github_stargazer_dashboard.html"
     out_path.write_text(html, encoding="utf-8")
     print(f"Saved {out_path}")
 
