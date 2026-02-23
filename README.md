@@ -99,7 +99,20 @@ Open the UI → http://localhost:3000
 
 On the left side panel click 
 
-**Catalog → Select Assets → Materialize**
+**Catalog → Select Assets → Materialize Selected**
+
+In the UI, when clicking **Materialize Selected** use the dropdown menu to select **Open launchpad**
+
+By default, the following ops configuration comes up:
+
+```bash
+ops:
+  extract_and_load:
+    config:
+      mode: incremental
+```
+
+set mode to either ```incremental``` or ```backfill```
 
 ### 5. View HTML Dashboard
 
